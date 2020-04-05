@@ -2,18 +2,18 @@ package br.com.labs.model;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Document
+@Entity
 public class User implements UserDetails {
 
 	@Id
-	private UUID id;
+	private Integer id;
 
 	private String name;
 
@@ -22,6 +22,14 @@ public class User implements UserDetails {
 	private String password;
 
 	private List<Role> roles;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

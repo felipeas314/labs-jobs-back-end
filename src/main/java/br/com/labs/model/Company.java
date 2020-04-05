@@ -1,27 +1,38 @@
 package br.com.labs.model;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.sun.istack.NotNull;
 
-@Document
+@Entity
 public class Company {
 
 	@Id
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
+	@NotBlank
+	@NotNull
 	private String name;
 
+	@NotBlank
+	@NotNull
 	private String cnpj;
 
+	private boolean active;
+
+	@NotNull
 	private Address address;
 
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

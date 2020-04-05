@@ -1,11 +1,9 @@
 package br.com.labs.repository;
 
-import java.util.UUID;
-
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.labs.model.User;
 
-public interface UserRepository extends ReactiveMongoRepository<User, UUID> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 }
